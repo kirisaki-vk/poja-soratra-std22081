@@ -19,7 +19,7 @@ public class SoratraService {
   private final BucketComponent bucket;
 
   public Optional<String> saveSoratra(String id, byte[] payload) throws IOException {
-    String originalSoratra = new String(payload, StandardCharsets.UTF_8);
+    String originalSoratra = new String(payload, StandardCharsets.UTF_8).toLowerCase();
     String modifiedSoratra = originalSoratra.toUpperCase();
 
     File originalFile = File.createTempFile("og_" + id, ".txt");
