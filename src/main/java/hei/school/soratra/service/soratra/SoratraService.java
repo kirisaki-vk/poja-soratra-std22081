@@ -31,8 +31,8 @@ public class SoratraService {
     Files.writeString(
         Path.of(modifiedFile.getAbsolutePath()), modifiedSoratra, StandardOpenOption.WRITE);
 
-    bucket.upload(originalFile, "og_" + id);
-    bucket.upload(modifiedFile, "md_" + id);
+    bucket.upload(originalFile, "og_" + id + ".txt");
+    bucket.upload(modifiedFile, "md_" + id + ".txt");
 
     return Optional.of(id);
   }
@@ -40,7 +40,7 @@ public class SoratraService {
   public Optional<Soratra> getSoratra(String id) {
     return Optional.of(
         new Soratra(
-            bucket.presign("og_" + id, Duration.ofMinutes(20)),
-            bucket.presign("md_" + id, Duration.ofMinutes(20))));
+            bucket.presign("og_" + id + ".txt", Duration.ofMinutes(20)),
+            bucket.presign("md_" + id + ".txt", Duration.ofMinutes(20))));
   }
 }
