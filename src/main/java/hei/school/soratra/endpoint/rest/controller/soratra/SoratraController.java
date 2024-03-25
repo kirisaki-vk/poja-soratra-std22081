@@ -6,7 +6,8 @@ import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/soratra")
+@RestController
+@RequestMapping("/soratra")
 @RequiredArgsConstructor
 public class SoratraController {
 
